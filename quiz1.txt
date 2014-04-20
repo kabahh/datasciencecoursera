@@ -1,0 +1,93 @@
+> x <- 4
+> class(x)
+[1] "numeric"
+> x1 <- c(4,"a",TRUE)
+> class(x1)
+[1] "character"
+> x2 <- c(1,3,5)
+> x3 <- c(3,2,10)
+> cbind(x2,x3)
+     x2 x3
+[1,]  1  3
+[2,]  3  2
+[3,]  5 10
+> class(cbind(x2,x3))
+[1] "matrix"
+> setwd("C:\\Users\\kalvarez\\Desktop\\rprog_data_quiz1_data")
+> data = read.cvs("hw1_data.cvs", header=T)
+Error: could not find function "read.cvs"
+> data = read.csv("hw1_data.csv", header=T)
+> names(data)
+[1] "Ozone"   "Solar.R" "Wind"    "Temp"    "Month"   "Day"    
+> x <- list(2,"a","b", TRUE)
+> x[[2]]
+[1] "a"
+> class(x[[2]])
+[1] "character"
+> ?list
+starting httpd help server ... done
+> x <- 1:4
+> y = 2
+> x+y
+[1] 3 4 5 6
+> x[2]
+[1] 2
+> x <- list(2,"a","b", TRUE)
+> x[2]
+[[1]]
+[1] "a"
+
+> x = c(17,14,4,5,13,12,10)
+> x[x>10] == 4
+[1] FALSE FALSE FALSE FALSE
+> x[x>10] <- 4
+> x
+[1]  4  4  4  5  4  4 10
+> names(data)
+[1] "Ozone"   "Solar.R" "Wind"    "Temp"    "Month"   "Day"    
+> head(data)
+  Ozone Solar.R Wind Temp Month Day
+1    41     190  7.4   67     5   1
+2    36     118  8.0   72     5   2
+3    12     149 12.6   74     5   3
+4    18     313 11.5   62     5   4
+5    NA      NA 14.3   56     5   5
+6    28      NA 14.9   66     5   6
+> dim(data)
+[1] 153   6
+> tail(data)
+    Ozone Solar.R Wind Temp Month Day
+148    14      20 16.6   63     9  25
+149    30     193  6.9   70     9  26
+150    NA     145 13.2   77     9  27
+151    14     191 14.3   75     9  28
+152    18     131  8.0   76     9  29
+153    20     223 11.5   68     9  30
+> data[42,1]
+[1] NA
+> data[42,]
+   Ozone Solar.R Wind Temp Month Day
+42    NA     259 10.9   93     6  11
+> data[47,]
+   Ozone Solar.R Wind Temp Month Day
+47    21     191 14.9   77     6  16
+> data[47,1]
+[1] 21
+> summary(data[,1])
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
+   1.00   18.00   31.50   42.13   63.25  168.00      37 
+> mean(data[,1],na.rm=TRUE)
+[1] 42.12931
+> data1 = subset(data, data[,1] > 31)
+> data2 = subset(data1, data1[,4] >90)
+> summary(data2[,2])
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+  167.0   188.2   200.0   212.8   234.0   272.0 
+> month6 = subset(data, data[,5] ==6)
+> mean(month6[,4])
+[1] 79.1
+> month5 = subset(data, data[,5] ==5)
+> summary(month5[,1])
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
+   1.00   11.00   18.00   23.62   31.50  115.00       5 
+> 
